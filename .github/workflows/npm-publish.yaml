@@ -34,14 +34,12 @@ jobs:
         run: npm install -g nx
 
       - run: npm install 
+     
+      - name: publish to npm
+        if: github.event.inputs.bigquery != 'nothing'
+        run: |
+          nx run @wix-velo/external-db-bigquery:publish --update={{inputs.wix-velo/external-db-bigquery}} --dryRun
 
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const script = require('.github/workflows/script.js')
-            if ({{inputs.wix-velo/external-db-bigquery}} !== 'nothing') {
-              script.run('nx run @wix-velo/external-db-bigquery:publish --update={{inputs.wix-velo/external-db-bigquery}} --dryRun')
-            }
-            
+
 
 
