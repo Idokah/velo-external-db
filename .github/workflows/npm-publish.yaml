@@ -13,12 +13,22 @@ on:
           - major
         default: nothing
 
+      wix-velo/external-db-mysql:
+        type: choice
+        description: "@wix-velo/external-db-mysql"
+        choices:
+          - nothing
+          - patch
+          - minor
+          - major
+        default: nothing
+
 jobs:
   publish_npm_ackage:
   
     runs-on: ubuntu-latest
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NODE_AUTH_TOKEN: 'something'
 
     steps:
       - name: Git checkout
