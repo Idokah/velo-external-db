@@ -3,24 +3,15 @@ name: Publish NPM packages2
 on:
   workflow_dispatch:
     inputs:
-      wix-velo/external-db-bigquery:
+      bigquery:
+        required: false
         type: choice
+        options:
+          - nothing
+          - patch
+          - minor
+          - major
         description: "@wix-velo/external-db-bigquery"
-        choices:
-          - nothing
-          - patch
-          - minor
-          - major
-        default: nothing
-
-      wix-velo/external-db-mysql:
-        type: choice
-        description: "@wix-velo/external-db-mysql"
-        choices:
-          - nothing
-          - patch
-          - minor
-          - major
         default: nothing
 
 jobs:
