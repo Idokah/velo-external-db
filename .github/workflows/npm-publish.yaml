@@ -1,4 +1,4 @@
-name: Publish NPM packages
+name: Publish NPM packages2
 
 on:
   workflow_dispatch:
