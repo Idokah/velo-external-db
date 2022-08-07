@@ -38,7 +38,7 @@ jobs:
       - name: publish to npm
         if: github.event.inputs.bigquery != 'nothing'
         run: |
-          nx run @wix-velo/external-db-bigquery:publish --update={{inputs.wix-velo/external-db-bigquery}} --dryRun
+          nx run @wix-velo/external-db-bigquery:publish --update=${{github.event.inputs.bigquery}} --dryRun
 
 
 
